@@ -12,4 +12,14 @@ import CoreData
 @objc(Book)
 public class Book: NSManagedObject {
 
+    static let entityName = "Book"
+    
+    init(title: String, pdfURL : String,imageURL : String, inContext context: NSManagedObjectContext){
+        
+        super.init(entity: NSEntityDescription.entity(forEntityName: Book.entityName, in: context)!, insertInto: context)
+        
+        self.title = title
+        self.pdfURL = pdfURL
+        self.imageURL = imageURL
+    }
 }

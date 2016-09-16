@@ -10,6 +10,7 @@ import Foundation
 class JSONManager : DownloaderDelegate{
    
     let url = URL(string: "https://keepcodigtest.blob.core.windows.net/containerblobstest/books_readable.json")!
+    
     typealias JSONObject        = AnyObject
     typealias JSONDictionary    = [String : JSONObject]
     typealias JSONArray         = [JSONDictionary]
@@ -35,7 +36,7 @@ class JSONManager : DownloaderDelegate{
         
         
         print("t" + "\(title)")
-        
+        //Book(title: title, pdfURL: pdfURL, imageURL: imgURL, inContext: <#T##NSManagedObjectContext#>)
         
     }
     
@@ -53,6 +54,19 @@ class JSONManager : DownloaderDelegate{
     
         let downloader = Downloader()
         downloader.asyncData(self.url)
+        
+    }
+    
+    func validateData(_ data: Data){
+        do{
+            let json :JSONArray = try (JSONSerialization.jsonObject(with: data, options: .mutableLeaves) as? JSONArray)!
+            
+            for book in json{
+                try self.decode(book: book)
+            }
+        }catch let error as NSError{
+            print(error)
+        }
         
     }
     

@@ -16,12 +16,12 @@ extension Book {
         return NSFetchRequest<Book>(entityName: "Book");
     }
 
-    @NSManaged public var title: String?
-    @NSManaged public var pdfURL: String?
     @NSManaged public var imageURL: String?
-    @NSManaged public var photo: Photo?
-    @NSManaged public var pdf: Pdf?
+    @NSManaged public var pdfURL: String?
+    @NSManaged public var title: String?
     @NSManaged public var authors: NSSet?
+    @NSManaged public var pdf: Pdf?
+    @NSManaged public var photo: Photo?
     @NSManaged public var tags: NSSet?
 
 }

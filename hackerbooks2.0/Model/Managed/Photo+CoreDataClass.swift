@@ -8,8 +8,28 @@
 
 import Foundation
 import CoreData
-
+import UIKit
 @objc(Photo)
 public class Photo: NSManagedObject {
 
+    static let entityName = "Photo"
+
+    var image : UIImage{
+        get{
+            return UIImage(data: photoData as! Data)!
+        }
+        set{
+            photoData = UIImageJPEGRepresentation(newValue, 0.9) as NSData?
+        }
+    }
+    
+    init(image: UIImage, context: NSManagedObjectContext){
+        
+        super.init(entity: NSEntityDescription.entity(forEntityName: Photo.entityName, in: context)!, insertInto: context)
+        
+        self.image = image
+        
+    }
+    
+    
 }

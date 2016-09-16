@@ -13,6 +13,10 @@
 		A10B02391D8B2939004C076D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A10B02381D8B2939004C076D /* Assets.xcassets */; };
 		A10B023C1D8B2939004C076D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A10B023A1D8B2939004C076D /* LaunchScreen.storyboard */; };
 		A10B02471D8B2939004C076D /* hackerbooks2_0Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10B02461D8B2939004C076D /* hackerbooks2_0Tests.swift */; };
+		A10B02521D8B29CA004C076D /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10B02511D8B29CA004C076D /* CoreDataStack.swift */; };
+		A10B02561D8B3C0D004C076D /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A10B02541D8B3C0D004C076D /* Model.xcdatamodeld */; };
+		A10B02591D8B3F7A004C076D /* BookTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10B02571D8B3F7A004C076D /* BookTableViewCell.swift */; };
+		A10B025A1D8B3F7A004C076D /* BookTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A10B02581D8B3F7A004C076D /* BookTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +40,10 @@
 		A10B02421D8B2939004C076D /* hackerbooks2.0Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = hackerbooks2.0Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A10B02461D8B2939004C076D /* hackerbooks2_0Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = hackerbooks2_0Tests.swift; sourceTree = "<group>"; };
 		A10B02481D8B2939004C076D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A10B02511D8B29CA004C076D /* CoreDataStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CoreDataStack.swift; path = Model/CoreDataStack.swift; sourceTree = "<group>"; };
+		A10B02551D8B3C0D004C076D /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
+		A10B02571D8B3F7A004C076D /* BookTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BookTableViewCell.swift; path = CellViews/BookTableViewCell.swift; sourceTree = "<group>"; };
+		A10B02581D8B3F7A004C076D /* BookTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = BookTableViewCell.xib; path = CellViews/BookTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +91,9 @@
 				A10B02381D8B2939004C076D /* Assets.xcassets */,
 				A10B023A1D8B2939004C076D /* LaunchScreen.storyboard */,
 				A10B023D1D8B2939004C076D /* Info.plist */,
+				A10B02531D8B29CF004C076D /* Model */,
+				A10B02571D8B3F7A004C076D /* BookTableViewCell.swift */,
+				A10B02581D8B3F7A004C076D /* BookTableViewCell.xib */,
 			);
 			path = hackerbooks2.0;
 			sourceTree = "<group>";
@@ -94,6 +105,15 @@
 				A10B02481D8B2939004C076D /* Info.plist */,
 			);
 			path = hackerbooks2.0Tests;
+			sourceTree = "<group>";
+		};
+		A10B02531D8B29CF004C076D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				A10B02511D8B29CA004C076D /* CoreDataStack.swift */,
+				A10B02541D8B3C0D004C076D /* Model.xcdatamodeld */,
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -179,6 +199,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A10B025A1D8B3F7A004C076D /* BookTableViewCell.xib in Resources */,
 				A10B023C1D8B2939004C076D /* LaunchScreen.storyboard in Resources */,
 				A10B02391D8B2939004C076D /* Assets.xcassets in Resources */,
 				A10B02371D8B2939004C076D /* Main.storyboard in Resources */,
@@ -199,8 +220,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A10B02521D8B29CA004C076D /* CoreDataStack.swift in Sources */,
 				A10B02341D8B2939004C076D /* ViewController.swift in Sources */,
 				A10B02321D8B2939004C076D /* AppDelegate.swift in Sources */,
+				A10B02591D8B3F7A004C076D /* BookTableViewCell.swift in Sources */,
+				A10B02561D8B3C0D004C076D /* Model.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -402,6 +426,20 @@
 			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		A10B02541D8B3C0D004C076D /* Model.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				A10B02551D8B3C0D004C076D /* Model.xcdatamodel */,
+			);
+			currentVersion = A10B02551D8B3C0D004C076D /* Model.xcdatamodel */;
+			name = Model.xcdatamodeld;
+			path = Model/Model.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = A10B02261D8B2938004C076D /* Project object */;
 }

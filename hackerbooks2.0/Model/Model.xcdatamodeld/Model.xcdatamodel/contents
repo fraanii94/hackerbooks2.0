@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="10174" systemVersion="15D21" minimumToolsVersion="Xcode 7.0">
+    <entity name="Annotation" syncable="YES"/>
+    <entity name="Book" syncable="YES"/>
+    <entity name="Localization" syncable="YES"/>
+    <entity name="Pdf" syncable="YES"/>
+    <entity name="Photo" syncable="YES">
+        <attribute name="photoData" attributeType="Binary" allowsExternalBinaryDataStorage="YES" syncable="YES"/>
+    </entity>
+    <entity name="Tag" syncable="YES"/>
+    <elements>
+        <element name="Book" positionX="-63" positionY="-18" width="128" height="45"/>
+        <element name="Pdf" positionX="-54" positionY="-9" width="128" height="45"/>
+        <element name="Tag" positionX="-36" positionY="9" width="128" height="45"/>
+        <element name="Localization" positionX="-18" positionY="27" width="128" height="45"/>
+        <element name="Annotation" positionX="0" positionY="45" width="128" height="45"/>
+        <element name="Photo" positionX="18" positionY="63" width="128" height="60"/>
+    </elements>
+</model>

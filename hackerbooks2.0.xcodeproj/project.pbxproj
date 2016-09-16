@@ -7,6 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3F56407C1D8BF95200E765D5 /* Downloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F56407B1D8BF95200E765D5 /* Downloader.swift */; };
+		3F5640B11D8C131100E765D5 /* JSONManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F5640B01D8C131100E765D5 /* JSONManager.swift */; };
+		3F5640B31D8C152600E765D5 /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F5640B21D8C152600E765D5 /* Error.swift */; };
+		3F5640DC1D8C241A00E765D5 /* Author+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F5640D21D8C241A00E765D5 /* Author+CoreDataClass.swift */; };
+		3F5640DD1D8C241A00E765D5 /* Author+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F5640D31D8C241A00E765D5 /* Author+CoreDataProperties.swift */; };
+		3F5640DE1D8C241A00E765D5 /* Pdf+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F5640D41D8C241A00E765D5 /* Pdf+CoreDataClass.swift */; };
+		3F5640DF1D8C241A00E765D5 /* Pdf+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F5640D51D8C241A00E765D5 /* Pdf+CoreDataProperties.swift */; };
+		3F5640E01D8C241A00E765D5 /* Tag+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F5640D61D8C241A00E765D5 /* Tag+CoreDataClass.swift */; };
+		3F5640E11D8C241A00E765D5 /* Tag+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F5640D71D8C241A00E765D5 /* Tag+CoreDataProperties.swift */; };
+		3F5640E21D8C241A00E765D5 /* Book+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F5640D81D8C241A00E765D5 /* Book+CoreDataClass.swift */; };
+		3F5640E31D8C241A00E765D5 /* Book+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F5640D91D8C241A00E765D5 /* Book+CoreDataProperties.swift */; };
+		3F5640E41D8C241A00E765D5 /* Photo+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F5640DA1D8C241A00E765D5 /* Photo+CoreDataClass.swift */; };
+		3F5640E51D8C241A00E765D5 /* Photo+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F5640DB1D8C241A00E765D5 /* Photo+CoreDataProperties.swift */; };
 		A10B02321D8B2939004C076D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10B02311D8B2939004C076D /* AppDelegate.swift */; };
 		A10B02341D8B2939004C076D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10B02331D8B2939004C076D /* ViewController.swift */; };
 		A10B02371D8B2939004C076D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A10B02351D8B2939004C076D /* Main.storyboard */; };
@@ -30,6 +43,19 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3F56407B1D8BF95200E765D5 /* Downloader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Downloader.swift; sourceTree = "<group>"; };
+		3F5640B01D8C131100E765D5 /* JSONManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONManager.swift; sourceTree = "<group>"; };
+		3F5640B21D8C152600E765D5 /* Error.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Error.swift; sourceTree = "<group>"; };
+		3F5640D21D8C241A00E765D5 /* Author+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Author+CoreDataClass.swift"; path = "hackerbooks2.0/Model/Managed/Author+CoreDataClass.swift"; sourceTree = "<group>"; };
+		3F5640D31D8C241A00E765D5 /* Author+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Author+CoreDataProperties.swift"; path = "hackerbooks2.0/Model/Managed/Author+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		3F5640D41D8C241A00E765D5 /* Pdf+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Pdf+CoreDataClass.swift"; path = "hackerbooks2.0/Model/Managed/Pdf+CoreDataClass.swift"; sourceTree = "<group>"; };
+		3F5640D51D8C241A00E765D5 /* Pdf+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Pdf+CoreDataProperties.swift"; path = "hackerbooks2.0/Model/Managed/Pdf+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		3F5640D61D8C241A00E765D5 /* Tag+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Tag+CoreDataClass.swift"; path = "hackerbooks2.0/Model/Managed/Tag+CoreDataClass.swift"; sourceTree = "<group>"; };
+		3F5640D71D8C241A00E765D5 /* Tag+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Tag+CoreDataProperties.swift"; path = "hackerbooks2.0/Model/Managed/Tag+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		3F5640D81D8C241A00E765D5 /* Book+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Book+CoreDataClass.swift"; path = "hackerbooks2.0/Model/Managed/Book+CoreDataClass.swift"; sourceTree = "<group>"; };
+		3F5640D91D8C241A00E765D5 /* Book+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Book+CoreDataProperties.swift"; path = "hackerbooks2.0/Model/Managed/Book+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		3F5640DA1D8C241A00E765D5 /* Photo+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Photo+CoreDataClass.swift"; path = "hackerbooks2.0/Model/Managed/Photo+CoreDataClass.swift"; sourceTree = "<group>"; };
+		3F5640DB1D8C241A00E765D5 /* Photo+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Photo+CoreDataProperties.swift"; path = "hackerbooks2.0/Model/Managed/Photo+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		A10B022E1D8B2939004C076D /* hackerbooks2.0.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = hackerbooks2.0.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A10B02311D8B2939004C076D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A10B02331D8B2939004C076D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -64,6 +90,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3F5640AF1D8C124F00E765D5 /* Managed */ = {
+			isa = PBXGroup;
+			children = (
+				3F5640D21D8C241A00E765D5 /* Author+CoreDataClass.swift */,
+				3F5640D31D8C241A00E765D5 /* Author+CoreDataProperties.swift */,
+				3F5640D41D8C241A00E765D5 /* Pdf+CoreDataClass.swift */,
+				3F5640D51D8C241A00E765D5 /* Pdf+CoreDataProperties.swift */,
+				3F5640D61D8C241A00E765D5 /* Tag+CoreDataClass.swift */,
+				3F5640D71D8C241A00E765D5 /* Tag+CoreDataProperties.swift */,
+				3F5640D81D8C241A00E765D5 /* Book+CoreDataClass.swift */,
+				3F5640D91D8C241A00E765D5 /* Book+CoreDataProperties.swift */,
+				3F5640DA1D8C241A00E765D5 /* Photo+CoreDataClass.swift */,
+				3F5640DB1D8C241A00E765D5 /* Photo+CoreDataProperties.swift */,
+			);
+			name = Managed;
+			path = ..;
+			sourceTree = "<group>";
+		};
 		A10B02251D8B2938004C076D = {
 			isa = PBXGroup;
 			children = (
@@ -94,6 +138,9 @@
 				A10B02531D8B29CF004C076D /* Model */,
 				A10B02571D8B3F7A004C076D /* BookTableViewCell.swift */,
 				A10B02581D8B3F7A004C076D /* BookTableViewCell.xib */,
+				3F56407B1D8BF95200E765D5 /* Downloader.swift */,
+				3F5640B01D8C131100E765D5 /* JSONManager.swift */,
+				3F5640B21D8C152600E765D5 /* Error.swift */,
 			);
 			path = hackerbooks2.0;
 			sourceTree = "<group>";
@@ -110,6 +157,7 @@
 		A10B02531D8B29CF004C076D /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				3F5640AF1D8C124F00E765D5 /* Managed */,
 				A10B02511D8B29CA004C076D /* CoreDataStack.swift */,
 				A10B02541D8B3C0D004C076D /* Model.xcdatamodeld */,
 			);
@@ -161,16 +209,17 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0730;
-				LastUpgradeCheck = 0730;
+				LastUpgradeCheck = 0800;
 				ORGANIZATIONNAME = "Francisco Navarro Aguilar";
 				TargetAttributes = {
 					A10B022D1D8B2939004C076D = {
 						CreatedOnToolsVersion = 7.3.1;
-						DevelopmentTeam = X44M3PTYDX;
+						LastSwiftMigration = 0800;
 					};
 					A10B02411D8B2939004C076D = {
 						CreatedOnToolsVersion = 7.3.1;
 						DevelopmentTeam = X44M3PTYDX;
+						LastSwiftMigration = 0800;
 						TestTargetID = A10B022D1D8B2939004C076D;
 					};
 				};
@@ -221,9 +270,22 @@
 			buildActionMask = 2147483647;
 			files = (
 				A10B02521D8B29CA004C076D /* CoreDataStack.swift in Sources */,
+				3F5640DE1D8C241A00E765D5 /* Pdf+CoreDataClass.swift in Sources */,
 				A10B02341D8B2939004C076D /* ViewController.swift in Sources */,
+				3F56407C1D8BF95200E765D5 /* Downloader.swift in Sources */,
+				3F5640E11D8C241A00E765D5 /* Tag+CoreDataProperties.swift in Sources */,
 				A10B02321D8B2939004C076D /* AppDelegate.swift in Sources */,
+				3F5640E51D8C241A00E765D5 /* Photo+CoreDataProperties.swift in Sources */,
+				3F5640B11D8C131100E765D5 /* JSONManager.swift in Sources */,
 				A10B02591D8B3F7A004C076D /* BookTableViewCell.swift in Sources */,
+				3F5640DC1D8C241A00E765D5 /* Author+CoreDataClass.swift in Sources */,
+				3F5640E01D8C241A00E765D5 /* Tag+CoreDataClass.swift in Sources */,
+				3F5640E21D8C241A00E765D5 /* Book+CoreDataClass.swift in Sources */,
+				3F5640DF1D8C241A00E765D5 /* Pdf+CoreDataProperties.swift in Sources */,
+				3F5640B31D8C152600E765D5 /* Error.swift in Sources */,
+				3F5640E41D8C241A00E765D5 /* Photo+CoreDataClass.swift in Sources */,
+				3F5640DD1D8C241A00E765D5 /* Author+CoreDataProperties.swift in Sources */,
+				3F5640E31D8C241A00E765D5 /* Book+CoreDataProperties.swift in Sources */,
 				A10B02561D8B3C0D004C076D /* Model.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -280,8 +342,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -326,8 +390,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -346,6 +412,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 			};
@@ -355,10 +422,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = hackerbooks2.0/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.francisco.hackerbooks2-0";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -366,10 +437,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = hackerbooks2.0/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.francisco.hackerbooks2-0";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
@@ -381,6 +455,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.francisco.hackerbooks2-0Tests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/hackerbooks2.0.app/hackerbooks2.0";
 			};
 			name = Debug;
@@ -393,6 +468,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.francisco.hackerbooks2-0Tests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/hackerbooks2.0.app/hackerbooks2.0";
 			};
 			name = Release;
@@ -416,6 +492,7 @@
 				A10B024D1D8B2939004C076D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		A10B024E1D8B2939004C076D /* Build configuration list for PBXNativeTarget "hackerbooks2.0Tests" */ = {
 			isa = XCConfigurationList;
@@ -424,6 +501,7 @@
 				A10B02501D8B2939004C076D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

@@ -2,13 +2,13 @@
 //  Book+CoreDataProperties.swift
 //  hackerbooks2.0
 //
-//  Created by Fran Navarro on 16/9/16.
+//  Created by fran on 19/9/16.
 //  Copyright © 2016 Francisco Navarro Aguilar. All rights reserved.
 //
 
 import Foundation
 import CoreData
-
+ 
 
 extension Book {
 
@@ -16,13 +16,13 @@ extension Book {
         return NSFetchRequest<Book>(entityName: "Book");
     }
 
-    @NSManaged public var imageURL: String?
-    @NSManaged public var pdfURL: String?
+    @NSManaged public var imagePath: String?
+    @NSManaged public var pdfPath: String?
     @NSManaged public var title: String?
     @NSManaged public var authors: NSSet?
     @NSManaged public var pdf: Pdf?
     @NSManaged public var photo: Photo?
-    @NSManaged public var tags: NSSet?
+    @NSManaged public var bookTags: NSSet?
 
 }
 
@@ -43,19 +43,19 @@ extension Book {
 
 }
 
-// MARK: Generated accessors for tags
+// MARK: Generated accessors for bookTags
 extension Book {
 
-    @objc(addTagsObject:)
-    @NSManaged public func addToTags(_ value: Tag)
+    @objc(addBookTagsObject:)
+    @NSManaged public func addToBookTags(_ value: BookTag)
 
-    @objc(removeTagsObject:)
-    @NSManaged public func removeFromTags(_ value: Tag)
+    @objc(removeBookTagsObject:)
+    @NSManaged public func removeFromBookTags(_ value: BookTag)
 
-    @objc(addTags:)
-    @NSManaged public func addToTags(_ values: NSSet)
+    @objc(addBookTags:)
+    @NSManaged public func addToBookTags(_ values: NSSet)
 
-    @objc(removeTags:)
-    @NSManaged public func removeFromTags(_ values: NSSet)
+    @objc(removeBookTags:)
+    @NSManaged public func removeFromBookTags(_ values: NSSet)
 
 }

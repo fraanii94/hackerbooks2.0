@@ -23,9 +23,9 @@ public class Photo: NSManagedObject {
         }
     }
     
-    init(image: UIImage, context: NSManagedObjectContext){
+    convenience init(image: UIImage, context: NSManagedObjectContext){
         
-        super.init(entity: NSEntityDescription.entity(forEntityName: Photo.entityName, in: context)!, insertInto: context)
+        self.init(entity: NSEntityDescription.entity(forEntityName: Photo.entityName, in: context)!, insertInto: context)
         
         self.image = image
         

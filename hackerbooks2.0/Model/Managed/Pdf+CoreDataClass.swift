@@ -11,5 +11,14 @@ import CoreData
 
 @objc(Pdf)
 public class Pdf: NSManagedObject {
-
+    
+    static let entityName = "Pdf"
+  
+    
+    
+    convenience init(pdfData : Data, inContext context : NSManagedObjectContext) {
+        
+        self.init(entity: NSEntityDescription.entity(forEntityName: Pdf.entityName, in: context)!, insertInto: context)
+        self.pdfData = pdfData as NSData?
+    }
 }

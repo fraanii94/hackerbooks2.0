@@ -11,5 +11,14 @@ import CoreData
 
 @objc(Author)
 public class Author: NSManagedObject {
-
+    
+    static let entityName = "Author"
+    
+    
+    convenience init(name : String,inContext context: NSManagedObjectContext){
+        self.init(entity: NSEntityDescription.entity(forEntityName: Author.entityName, in: context)!,insertInto: context)
+        self.name = name
+        
+    }
+    
 }

@@ -6,13 +6,17 @@
         <relationship name="books" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Book" inverseName="authors" inverseEntity="Book" syncable="YES"/>
     </entity>
     <entity name="Book" representedClassName="Book" syncable="YES">
-        <attribute name="imageURL" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="pdfURL" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="imagePath" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="pdfPath" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="title" attributeType="String" indexed="YES" syncable="YES"/>
         <relationship name="authors" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Author" inverseName="books" inverseEntity="Author" syncable="YES"/>
+        <relationship name="bookTags" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="BookTag" inverseName="book" inverseEntity="BookTag" syncable="YES"/>
         <relationship name="pdf" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Pdf" inverseName="book" inverseEntity="Pdf" syncable="YES"/>
         <relationship name="photo" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Photo" inverseName="book" inverseEntity="Photo" syncable="YES"/>
-        <relationship name="tags" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Tag" inverseName="books" inverseEntity="Tag" syncable="YES"/>
+    </entity>
+    <entity name="BookTag" representedClassName=".BookTag" syncable="YES">
+        <relationship name="book" maxCount="1" deletionRule="Nullify" destinationEntity="Book" inverseName="bookTags" inverseEntity="Book" syncable="YES"/>
+        <relationship name="tag" maxCount="1" deletionRule="Nullify" destinationEntity="Tag" inverseName="bookTags" inverseEntity="Tag" syncable="YES"/>
     </entity>
     <entity name="Localization" syncable="YES"/>
     <entity name="Pdf" representedClassName="Pdf" syncable="YES">
@@ -24,16 +28,18 @@
         <relationship name="book" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Book" inverseName="photo" inverseEntity="Book" syncable="YES"/>
     </entity>
     <entity name="Tag" representedClassName="Tag" syncable="YES">
+        <attribute name="importance" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="name" attributeType="String" syncable="YES"/>
-        <relationship name="books" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Book" inverseName="tags" inverseEntity="Book" syncable="YES"/>
+        <relationship name="bookTags" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="BookTag" inverseName="tag" inverseEntity="BookTag" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Annotation" positionX="0" positionY="45" width="128" height="45"/>
-        <element name="Author" positionX="-27" positionY="45" width="128" height="75"/>
-        <element name="Book" positionX="-63" positionY="-18" width="128" height="150"/>
-        <element name="Localization" positionX="-18" positionY="27" width="128" height="45"/>
-        <element name="Pdf" positionX="-54" positionY="-9" width="128" height="75"/>
-        <element name="Photo" positionX="18" positionY="63" width="128" height="75"/>
-        <element name="Tag" positionX="-36" positionY="9" width="128" height="75"/>
+        <element name="Annotation" positionX="43" positionY="144" width="128" height="45"/>
+        <element name="Author" positionX="-207" positionY="-63" width="128" height="75"/>
+        <element name="Book" positionX="-0" positionY="-45" width="128" height="150"/>
+        <element name="Localization" positionX="-333" positionY="90" width="128" height="45"/>
+        <element name="Pdf" positionX="-108" positionY="180" width="128" height="75"/>
+        <element name="Photo" positionX="-351" positionY="-3" width="128" height="75"/>
+        <element name="Tag" positionX="171" positionY="216" width="128" height="90"/>
+        <element name="BookTag" positionX="223" positionY="-36" width="128" height="73"/>
     </elements>
 </model>

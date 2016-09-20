@@ -7,17 +7,53 @@
 //
 
 import UIKit
-
+import CoreData
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-    let model = CoreDataStack(modelName: "Model")
+    let model = CoreDataStack(modelName: "Model")!
+    let url = URL(string: "https://keepcodigtest.blob.core.windows.net/containerblobstest/books_readable.json")!
     
     
-    
-    private func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        // Override point for customization after application launch.
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+        
+        //try! model.dropAllData()
+        
+        let req = NSFetchRequest<BookTag>(entityName: BookTag.entityName)
+        
+        req.includesPropertyValues = false
+        req.sortDescriptors = [NSSortDescriptor(key: "tag.importance", ascending: false),NSSortDescriptor(key:"tag.name",ascending:true)]
+        var count = 0
+        do{
+            count = try self.model.context.count(for: req)
+        }catch{
+            print("error")
+        }
+        if count == 0 {
+            let jsonManager = JSONManager(url: url, model: model)
+            
+            jsonManager.downloadBooks()
+            let _ = Tag(name: "Favorites", importance: true, inContext: self.model.context)
+            
+        }
+        self.model.autoSave(10)
+        let fetchedResultsController = NSFetchedResultsController(fetchRequest: req, managedObjectContext: model.context, sectionNameKeyPath: "tag.name", cacheName: nil)
+        
+        let tabVC = BooksViewController(fetchedResultsController: fetchedResultsController as! NSFetchedResultsController<NSFetchRequestResult>)
+        
+        window = UIWindow(frame: UIScreen.main.bounds)
+        
+        window?.rootViewController = UINavigationController(rootViewController: tabVC)
+        
+        window?.makeKeyAndVisible()
+        
+           
+
+        
+        
+        
+        
         return true
     }
 
@@ -29,6 +65,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationDidEnterBackground(_ application: UIApplication) {
         // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
         // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+        self.model.save()
     }
 
     func applicationWillEnterForeground(_ application: UIApplication) {
@@ -41,6 +78,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+        self.model.save()
     }
 
 

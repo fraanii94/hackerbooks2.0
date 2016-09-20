@@ -7,21 +7,67 @@
 //
 
 import Foundation
-class JSONManager : DownloaderDelegate{
+import CoreData
+class JSONManager {
    
-    let url = URL(string: "https://keepcodigtest.blob.core.windows.net/containerblobstest/books_readable.json")!
+    var url : URL
+    var model : CoreDataStack
     
     typealias JSONObject        = AnyObject
     typealias JSONDictionary    = [String : JSONObject]
     typealias JSONArray         = [JSONDictionary]
     
-    private func decode(book json: JSONDictionary) throws {
+    init(url: URL, model : CoreDataStack){
+        self.url = url
+        self.model = model
         
-        guard let pdfURL = json["pdf_url"] as? String, let pdf = NSURL(string: pdfURL) else {
+    }
+    
+    public func downloadBooks(){
+        let downloader = Downloader()
+        downloader.asyncData(self.url) { (data : Data) in
+            self.didDownload(data : data)
+            
+        }
+        
+        
+    }
+    
+    func validateData(_ data: Data){
+        do{
+            let json :JSONArray = try (JSONSerialization.jsonObject(with: data, options: .mutableLeaves) as? JSONArray)!
+            
+            for book in json{
+                try self.decodeAndCreate(book: book)
+            }
+            
+            
+        }catch let error as NSError{
+            print(error)
+        }
+        
+    }
+    
+    func didDownload(data : Data) {
+        
+        if url == self.url {
+            self.validateData(data)
+        }
+        
+    }
+    
+
+}
+
+extension JSONManager {
+    
+    func decodeAndCreate(book json: JSONDictionary) throws {
+        
+        guard let pdfURL = json["pdf_url"] as? String, let _ = NSURL(string: pdfURL) else {
             throw BookError.wrongURLFormatForJSONResource
         }
         
-        guard let imgURL = json["image_url"] as? String, let img = NSURL(string: imgURL) else {
+        guard let imgURL = json["image_url"] as? String, let _ = NSURL(string: imgURL) else {
             throw BookError.wrongURLFormatForJSONResource
         }
         guard let title = json["title"] as? String else {
@@ -33,55 +79,66 @@ class JSONManager : DownloaderDelegate{
         guard let authors = json["authors"]?.components(separatedBy:", ") else {
             throw BookError.JSONParsingError
         }
+
+      
+        var authorSet = NSSet()
+        for author in authors{
+            let authorRequest = NSFetchRequest<Author>(entityName: Author.entityName)
+            authorRequest.predicate = NSPredicate(format: "name == %@", author)
+            authorRequest.fetchLimit = 1
+            let result = try! self.model.context.fetch(authorRequest)
+            
+            if result.count == 0{
+                let a = Author(name: author, inContext: self.model.context)
+                authorSet = authorSet.adding(a) as NSSet
+            }else{
+                authorSet = authorSet.adding(result[0]) as NSSet
+            }
+
+        }
         
         
-        print("t" + "\(title)")
-        //Book(title: title, pdfURL: pdfURL, imageURL: imgURL, inContext: <#T##NSManagedObjectContext#>)
+        let bookRequest = NSFetchRequest<Book>(entityName: Book.entityName)
+        bookRequest.predicate = NSPredicate(format: "title == %@", title)
+        bookRequest.fetchLimit = 1
+        
+        let bookCount = try! self.model.context.count(for: bookRequest)
+        
+        if bookCount == 0 {
+            let b = Book(title: title, pdfPath: pdfURL, imagePath: imgURL,authors:authorSet, inContext: self.model.context)
+            
+            for tag in tags{
+                let tagRequest = NSFetchRequest<Tag>(entityName: Tag.entityName)
+                tagRequest.predicate = NSPredicate(format: "name == %@", tag)
+                tagRequest.fetchLimit = 1
+                let result = try! self.model.context.fetch(tagRequest)
+                
+                if result.count == 0{
+                     let t = Tag(name: tag, importance: false, inContext: self.model.context)
+                     let _ = BookTag(book: b, tag: t, inContext: self.model.context)
+                }else{
+                    let _ = BookTag(book: b, tag: result[0], inContext: self.model.context)
+
+                }
+            }
+
+        }
         
     }
     
     
-    private func decode(book json: JSONDictionary?) throws -> Book {
+    func decodeAndCreate(book json: JSONDictionary?) throws -> Book {
         // Comprobar caso opcional
         if case .some(let book) = json {
-            return try decode(book: book)
+            return try decodeAndCreate(book: book)
         }else {
             throw BookError.nilBook
         }
     }
     
-    public func downloadBooks(){
+  
     
-        let downloader = Downloader()
-        downloader.asyncData(self.url)
-        
-    }
-    
-    func validateData(_ data: Data){
-        do{
-            let json :JSONArray = try (JSONSerialization.jsonObject(with: data, options: .mutableLeaves) as? JSONArray)!
-            
-            for book in json{
-                try self.decode(book: book)
-            }
-        }catch let error as NSError{
-            print(error)
-        }
-        
-    }
-    
-    func downloader(_ sender: Downloader, didEndDownloadingFrom url: URL, data: Data) {
-        
-        if url == self.url {
-            self.validateData(data)
-        }
-        
-    }
-    
-    
-
 }
-
 
 
 

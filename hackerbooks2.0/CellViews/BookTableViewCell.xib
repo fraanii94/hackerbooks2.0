@@ -18,7 +18,7 @@
                 <subviews>
                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="wBO-AP-QO5">
                         <constraints>
-                            <constraint firstAttribute="width" constant="67" id="nYr-d9-per"/>
+                            <constraint firstAttribute="width" constant="67" id="Nnf-Qy-8lf"/>
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="El señor de los anillos - El retorno del rey" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TGq-6U-uHf">
@@ -26,27 +26,39 @@
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fbL-fQ-re8">
-                        <frame key="frameInset" minX="83" minY="50" width="229" height="21"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fbL-fQ-re8">
                         <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="14"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Bh-Dh-MYc">
+                        <constraints>
+                            <constraint firstAttribute="width" constant="30" id="bdt-SO-kEN"/>
+                        </constraints>
+                        <state key="normal" title="⭐️"/>
+                    </button>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="TGq-6U-uHf" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="-2" id="ILy-4L-0Nd"/>
-                    <constraint firstItem="wBO-AP-QO5" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="-2" id="bpp-Kb-2nX"/>
-                    <constraint firstItem="wBO-AP-QO5" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="e4W-aP-Ydw"/>
-                    <constraint firstItem="TGq-6U-uHf" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" constant="-9" id="muD-AE-kzz"/>
-                    <constraint firstAttribute="bottomMargin" secondItem="wBO-AP-QO5" secondAttribute="bottom" constant="-2" id="owW-e5-bfO"/>
-                    <constraint firstItem="TGq-6U-uHf" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" constant="-9.5" id="vKz-xN-bv0"/>
-                    <constraint firstItem="TGq-6U-uHf" firstAttribute="leading" secondItem="wBO-AP-QO5" secondAttribute="trailing" constant="8" symbolic="YES" id="vag-gj-eqG"/>
+                    <constraint firstItem="8Bh-Dh-MYc" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="2ND-eA-KPx"/>
+                    <constraint firstItem="8Bh-Dh-MYc" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="16" id="4BK-gx-jPW"/>
+                    <constraint firstItem="fbL-fQ-re8" firstAttribute="bottom" secondItem="H2p-sc-9uM" secondAttribute="bottomMargin" id="4xG-hX-38B"/>
+                    <constraint firstItem="wBO-AP-QO5" firstAttribute="top" secondItem="TGq-6U-uHf" secondAttribute="top" id="BBI-fi-H3Z"/>
+                    <constraint firstItem="wBO-AP-QO5" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="-2" id="JC3-h2-krc"/>
+                    <constraint firstItem="8Bh-Dh-MYc" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" id="JzY-fc-gCj"/>
+                    <constraint firstItem="fbL-fQ-re8" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="42" id="MCl-v8-thL"/>
+                    <constraint firstItem="wBO-AP-QO5" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="ZRm-It-mEb"/>
+                    <constraint firstItem="wBO-AP-QO5" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="cul-AK-yxg"/>
+                    <constraint firstItem="TGq-6U-uHf" firstAttribute="leading" secondItem="wBO-AP-QO5" secondAttribute="trailing" constant="8" symbolic="YES" id="fpO-ew-2e2"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="TGq-6U-uHf" secondAttribute="trailing" constant="23" id="gnv-Tb-uKO"/>
+                    <constraint firstItem="TGq-6U-uHf" firstAttribute="trailing" secondItem="fbL-fQ-re8" secondAttribute="trailing" id="mBs-rY-mlK"/>
+                    <constraint firstItem="TGq-6U-uHf" firstAttribute="leading" secondItem="fbL-fQ-re8" secondAttribute="leading" id="sCM-3R-Jfn"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="TGq-6U-uHf" secondAttribute="bottom" constant="16" id="wjV-1v-j5N"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
                 <outlet property="authors" destination="fbL-fQ-re8" id="zhv-hN-JfR"/>
                 <outlet property="coverImage" destination="wBO-AP-QO5" id="axi-KW-abZ"/>
+                <outlet property="fav" destination="8Bh-Dh-MYc" id="97J-eZ-Y2O"/>
                 <outlet property="title" destination="TGq-6U-uHf" id="udh-I9-x2l"/>
             </connections>
             <point key="canvasLocation" x="255" y="325"/>

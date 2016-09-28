@@ -11,7 +11,7 @@ import CoreData
 class BooksViewController: CoreDataTableViewController {
 
     typealias bookHandler = (UIImage) ->()
-    
+
     func downloadCover(url : URL,completion handler: @escaping bookHandler){
         
         DispatchQueue.global(qos: .userInitiated).async {
@@ -21,9 +21,7 @@ class BooksViewController: CoreDataTableViewController {
                 handler(image)
             }
         }
-        
     }
-  
 }
 
 //MARK: - Lifecycle
@@ -35,17 +33,18 @@ extension BooksViewController {
         title = "Hackerbooks"
         let nib = UINib(nibName: "BookTableViewCell", bundle: Bundle.main)
         self.tableView.register(nib, forCellReuseIdentifier: "BookCell")
+        
     }
     
-    
-    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+    }
 }
 
 
 //MARK: - DataSource
 extension BooksViewController{
-    
-    
     
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         
@@ -86,6 +85,14 @@ extension BooksViewController{
             cell.coverImage.image = book?.photo?.image
         }
         
+        if self.isFav(book!){
+            
+            cell.fav.setTitle("🌟", for: .normal)
+            
+        }else {
+            cell.fav.setTitle("⭐️",for: .normal)
+        }
+        cell.fav.addTarget(self, action: #selector(BooksViewController.didFav(_:)), for: .touchUpInside)
         
         return cell
     }
@@ -104,5 +111,62 @@ extension BooksViewController{
         self.navigationController?.present(navVc, animated: true, completion: nil)
        
     }
+}
+//MARK: - Favorites
+extension BooksViewController {
+    
+    func didFav(_ sender:AnyObject){
+        // Obtain the indexPath of the pressed fav button
+        let cgPointZero = CGPoint(x: 0, y: 0)
+        let point = sender.convert(cgPointZero, to: self.tableView)
+        let indexPath = self.tableView.indexPathForRow(at: point)
+        // Fetch the bookTag and the book associated to that indexPath
+        let bookTag = self.fetchedResultsController?.object(at: indexPath!) as! BookTag
+        let book = bookTag.book!
+        // if is favorite, we delete it, else, we create a new BookTag with favorite Tag
+        if isFav(book){
+            
+            let bookTag = self.bookTagOfFavorites(with: book)
+            self.fetchedResultsController?.managedObjectContext.delete(bookTag)
+            
+        }else{
+            let _ = BookTag(book: book, tag: self.favEntity(), inContext: (self.fetchedResultsController?.managedObjectContext)!)
+        }
+    
+        self.tableView.reloadData()
+        
+    }
+    
+    func favEntity() ->Tag{
+        
+        let favRequest = NSFetchRequest<Tag>(entityName: Tag.entityName)
+        favRequest.predicate = NSPredicate(format: "name == %@", "Favorites")
+        
+        let favEntity = try! (self.fetchedResultsController?.managedObjectContext.fetch(favRequest)[0])! as Tag
+        return favEntity
+    }
+    
+    func isFav(_ book: Book) -> Bool{
+        
+        for bookTag : BookTag in favEntity().bookTags?.allObjects as! [BookTag]{
+            if bookTag.book == book{
+                return true
+            }
+        }
+        return false
+        
+    }
+    
+    func bookTagOfFavorites(with book: Book) -> BookTag{
+        
+        let bookTagRequest = NSFetchRequest<BookTag>(entityName: BookTag.entityName)
+        
+        let tagPredicate = NSPredicate(format: "tag == %@", self.favEntity())
+        let bookPredicate = NSPredicate(format: "book == %@", book)
+        bookTagRequest.predicate = NSCompoundPredicate(andPredicateWithSubpredicates: [tagPredicate,bookPredicate])
+        let bookTag = try! (self.fetchedResultsController?.managedObjectContext.fetch(bookTagRequest)[0])! as BookTag
+        return bookTag
+    }
+    
     
 }

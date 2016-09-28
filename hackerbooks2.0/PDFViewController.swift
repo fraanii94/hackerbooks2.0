@@ -32,12 +32,15 @@ class PDFViewController: UIViewController, URLSessionDownloadDelegate {
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(PDFViewController.cancel))
+        
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Notas", style: .plain, target: self, action: #selector(PDFViewController.showNotes))
         
         self.edgesForExtendedLayout = []
         
         if(self.book.pdf == nil){
-            let conf = URLSessionConfiguration.background(withIdentifier: "hackerbooks.pdf." + self.book.description)
+            let conf = URLSessionConfiguration.background(withIdentifier: "hackerbooks.pdf." + self.book.title!)
             let queue = OperationQueue()
             self.session = URLSession(configuration: conf, delegate: self, delegateQueue: queue)
             
@@ -52,13 +55,23 @@ class PDFViewController: UIViewController, URLSessionDownloadDelegate {
     
     
     func cancel(){
-        
-        self.navigationController?.dismiss(animated: true, completion: {
-            self.context.refresh(self.book.pdf!, mergeChanges: false)
-        })
+        self.clean()
+        self.navigationController?.dismiss(animated: true, completion: nil)
         
     }
 
+    func showNotes(){
+        let mapVC = NotesMapViewController()
+        mapVC.title = "Map"
+        
+        let notesTabBarController = UITabBarController()
+        notesTabBarController.title = "Notas"
+        notesTabBarController.setViewControllers([mapVC], animated: true)
+        
+        self.navigationController?.pushViewController(notesTabBarController, animated: true)
+        
+        
+    }
     
     func loadPDF(data : Data){
         
@@ -68,7 +81,9 @@ class PDFViewController: UIViewController, URLSessionDownloadDelegate {
     
     func clean(){
         self.progressView.progress = 0
-        self.session.finishTasksAndInvalidate()
+        
+        self.session?.invalidateAndCancel()
+        self.session?.finishTasksAndInvalidate()
     }
 }
 //MARK: - ProgressView

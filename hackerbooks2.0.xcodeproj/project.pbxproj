@@ -37,6 +37,8 @@
 		A19962F31D90915E0005921D /* Photo+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = A19962EC1D90915E0005921D /* Photo+CoreDataProperties.swift */; };
 		A19962F41D90915E0005921D /* BookTag+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = A19962ED1D90915E0005921D /* BookTag+CoreDataClass.swift */; };
 		A19962F51D90915E0005921D /* BookTag+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = A19962EE1D90915E0005921D /* BookTag+CoreDataProperties.swift */; };
+		A19962FA1D9845150005921D /* NotesMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A19962F81D9845150005921D /* NotesMapViewController.swift */; };
+		A19962FB1D9845150005921D /* NotesMapViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A19962F91D9845150005921D /* NotesMapViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -84,6 +86,8 @@
 		A19962EC1D90915E0005921D /* Photo+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Photo+CoreDataProperties.swift"; path = "hackerbooks2.0/Model/Managed/Photo+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		A19962ED1D90915E0005921D /* BookTag+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "BookTag+CoreDataClass.swift"; path = "hackerbooks2.0/Model/Managed/BookTag+CoreDataClass.swift"; sourceTree = "<group>"; };
 		A19962EE1D90915E0005921D /* BookTag+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "BookTag+CoreDataProperties.swift"; path = "hackerbooks2.0/Model/Managed/BookTag+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		A19962F81D9845150005921D /* NotesMapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotesMapViewController.swift; sourceTree = "<group>"; };
+		A19962F91D9845150005921D /* NotesMapViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NotesMapViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -146,6 +150,8 @@
 			isa = PBXGroup;
 			children = (
 				A19962E11D8EB0A10005921D /* resources */,
+				A19962F81D9845150005921D /* NotesMapViewController.swift */,
+				A19962F91D9845150005921D /* NotesMapViewController.xib */,
 				A19962E21D8EE6570005921D /* PDFViewController.swift */,
 				A19962E31D8EE6570005921D /* PDFViewController.xib */,
 				A19962D91D8D85990005921D /* CoreDataTableViewController.swift */,
@@ -277,6 +283,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A19962FB1D9845150005921D /* NotesMapViewController.xib in Resources */,
 				A10B025A1D8B3F7A004C076D /* BookTableViewCell.xib in Resources */,
 				A19962E51D8EE6570005921D /* PDFViewController.xib in Resources */,
 				A19962E01D8EB09E0005921D /* default_cover.jpg in Resources */,
@@ -320,6 +327,7 @@
 				3F5640F21D8C268100E765D5 /* Book+CoreDataClass.swift in Sources */,
 				3F5640F81D8C268100E765D5 /* Photo+CoreDataClass.swift in Sources */,
 				3F5640F61D8C268100E765D5 /* Author+CoreDataClass.swift in Sources */,
+				A19962FA1D9845150005921D /* NotesMapViewController.swift in Sources */,
 				3F5640B31D8C152600E765D5 /* Error.swift in Sources */,
 				A19962F51D90915E0005921D /* BookTag+CoreDataProperties.swift in Sources */,
 				A10B02561D8B3C0D004C076D /* Model.xcdatamodeld in Sources */,

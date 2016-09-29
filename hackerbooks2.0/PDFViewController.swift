@@ -33,9 +33,7 @@ class PDFViewController: UIViewController, URLSessionDownloadDelegate {
     
     override func viewWillAppear(_ animated: Bool) {
         
-        self.navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(PDFViewController.cancel))
         
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Notas", style: .plain, target: self, action: #selector(PDFViewController.showNotes))
         
         self.edgesForExtendedLayout = []
         
@@ -51,6 +49,13 @@ class PDFViewController: UIViewController, URLSessionDownloadDelegate {
             self.loadPDF(data: self.book.pdf?.pdfData as! Data)
         }
         
+    }
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(PDFViewController.cancel))
+        
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Notas", style: .plain, target: self, action: #selector(PDFViewController.showNotes))
     }
     
     

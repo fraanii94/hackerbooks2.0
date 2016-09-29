@@ -8,9 +8,10 @@
 
 import UIKit
 import CoreData
-class BooksViewController: CoreDataTableViewController {
+class BooksViewController: CoreDataTableViewController,UISearchBarDelegate,UISearchResultsUpdating {
 
     typealias bookHandler = (UIImage) ->()
+    let searchController = UISearchController(searchResultsController: nil)
 
     func downloadCover(url : URL,completion handler: @escaping bookHandler){
         
@@ -29,10 +30,13 @@ class BooksViewController: CoreDataTableViewController {
 extension BooksViewController {
     
     override func viewDidLoad() {
+        self.searchController.searchBar.delegate = self
+        self.searchController.searchResultsUpdater = self
         super.viewDidLoad()
         title = "Hackerbooks"
         let nib = UINib(nibName: "BookTableViewCell", bundle: Bundle.main)
         self.tableView.register(nib, forCellReuseIdentifier: "BookCell")
+        self.tableView.tableHeaderView = self.searchController.searchBar
         
     }
     
@@ -132,14 +136,15 @@ extension BooksViewController {
         }else{
             let _ = BookTag(book: book, tag: self.favEntity(), inContext: (self.fetchedResultsController?.managedObjectContext)!)
         }
-    
         self.tableView.reloadData()
+        
+    
         
     }
     
     func favEntity() ->Tag{
         
-        let favRequest = NSFetchRequest<Tag>(entityName: Tag.entityName)
+        let favRequest : NSFetchRequest<Tag> = Tag.fetchRequest()
         favRequest.predicate = NSPredicate(format: "name == %@", "Favorites")
         
         let favEntity = try! (self.fetchedResultsController?.managedObjectContext.fetch(favRequest)[0])! as Tag
@@ -149,7 +154,7 @@ extension BooksViewController {
     func isFav(_ book: Book) -> Bool{
         
         for bookTag : BookTag in favEntity().bookTags?.allObjects as! [BookTag]{
-            if bookTag.book == book{
+            if bookTag.book?.objectID == book.objectID{
                 return true
             }
         }
@@ -159,14 +164,60 @@ extension BooksViewController {
     
     func bookTagOfFavorites(with book: Book) -> BookTag{
         
-        let bookTagRequest = NSFetchRequest<BookTag>(entityName: BookTag.entityName)
+        let bookTagRequest : NSFetchRequest<BookTag> = BookTag.fetchRequest()
         
         let tagPredicate = NSPredicate(format: "tag == %@", self.favEntity())
         let bookPredicate = NSPredicate(format: "book == %@", book)
         bookTagRequest.predicate = NSCompoundPredicate(andPredicateWithSubpredicates: [tagPredicate,bookPredicate])
         let bookTag = try! (self.fetchedResultsController?.managedObjectContext.fetch(bookTagRequest)[0])! as BookTag
+        
         return bookTag
     }
     
+    
+}
+//MARK: - UISearchResultsUpdating
+extension BooksViewController{
+    
+    @objc(updateSearchResultsForSearchController:) public func updateSearchResults(for searchController: UISearchController){
+        
+        let searchText = searchController.searchBar.text
+        if  !(searchText == nil) && !((searchText?.isEmpty)!){
+            let bookTagRequest : NSFetchRequest<BookTag> = BookTag.fetchRequest()
+            
+            let titlePredicate = NSPredicate(format: "book.title contains[cd] %@", searchText!)
+            let authorPredicate = NSPredicate(format: "ANY book.authors.name contains[cd] %@", searchText!)
+            let tagPredicate = NSPredicate(format: "tag.name contains[cd] %@", searchText!)
+            bookTagRequest.predicate = NSCompoundPredicate(orPredicateWithSubpredicates: [titlePredicate,authorPredicate,tagPredicate])
+            bookTagRequest.sortDescriptors = self.fetchedResultsController?.fetchRequest.sortDescriptors
+            let _fetchedResultsController = NSFetchedResultsController(fetchRequest: bookTagRequest, managedObjectContext: (self.fetchedResultsController?.managedObjectContext)!, sectionNameKeyPath: "tag.name", cacheName: nil)
+            
+            self.fetchedResultsController = _fetchedResultsController as? NSFetchedResultsController<NSFetchRequestResult>
+            
+            
+        }
+        
+        
+        
+    }
+
+    
+}
+//MARK - SearchBar Delegate
+extension BooksViewController{
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        
+        let defaultRequest : NSFetchRequest<BookTag> = BookTag.fetchRequest()
+        defaultRequest.sortDescriptors = self.fetchedResultsController?.fetchRequest.sortDescriptors
+        let _fetchedResultsController = NSFetchedResultsController(fetchRequest: defaultRequest, managedObjectContext: (self.fetchedResultsController?.managedObjectContext)!, sectionNameKeyPath: "tag.name", cacheName: nil)
+        
+        self.fetchedResultsController = _fetchedResultsController as? NSFetchedResultsController<NSFetchRequestResult>
+        
+    }
+    
+    func searchBarResultsListButtonClicked(_ searchBar: UISearchBar) {
+        self.searchController.searchBar.text = searchBar.text
+    }
     
 }

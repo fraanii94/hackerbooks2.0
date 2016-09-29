@@ -2,13 +2,13 @@
 //  Photo+CoreDataProperties.swift
 //  hackerbooks2.0
 //
-//  Created by fran on 19/9/16.
+//  Created by fran on 28/9/16.
 //  Copyright © 2016 Francisco Navarro Aguilar. All rights reserved.
 //
 
 import Foundation
 import CoreData
-
+ 
 
 extension Photo {
 
@@ -18,5 +18,6 @@ extension Photo {
 
     @NSManaged public var photoData: NSData?
     @NSManaged public var book: Book?
+    @NSManaged public var annotation: Annotation?
 
 }

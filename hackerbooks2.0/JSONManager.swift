@@ -83,7 +83,7 @@ extension JSONManager {
       
         var authorSet = NSSet()
         for author in authors{
-            let authorRequest = NSFetchRequest<Author>(entityName: Author.entityName)
+            let authorRequest : NSFetchRequest<Author> = Author.fetchRequest()
             authorRequest.predicate = NSPredicate(format: "name == %@", author)
             authorRequest.fetchLimit = 1
             let result = try! self.model.context.fetch(authorRequest)
@@ -98,7 +98,7 @@ extension JSONManager {
         }
         
         
-        let bookRequest = NSFetchRequest<Book>(entityName: Book.entityName)
+        let bookRequest : NSFetchRequest<Book> = Book.fetchRequest()
         bookRequest.predicate = NSPredicate(format: "title == %@", title)
         bookRequest.fetchLimit = 1
         
@@ -108,7 +108,7 @@ extension JSONManager {
             let b = Book(title: title, pdfPath: pdfURL, imagePath: imgURL,authors:authorSet, inContext: self.model.context)
             
             for tag in tags{
-                let tagRequest = NSFetchRequest<Tag>(entityName: Tag.entityName)
+                let tagRequest : NSFetchRequest<Tag> = Tag.fetchRequest()
                 tagRequest.predicate = NSPredicate(format: "name == %@", tag)
                 tagRequest.fetchLimit = 1
                 let result = try! self.model.context.fetch(tagRequest)

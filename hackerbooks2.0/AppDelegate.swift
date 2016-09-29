@@ -20,7 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         //try! model.dropAllData()
         
-        let req = NSFetchRequest<BookTag>(entityName: BookTag.entityName)
+        let req : NSFetchRequest<BookTag> = BookTag.fetchRequest()
         
         req.includesPropertyValues = false
         req.sortDescriptors = [NSSortDescriptor(key: "tag.importance", ascending: false),NSSortDescriptor(key:"tag.name",ascending:true)]

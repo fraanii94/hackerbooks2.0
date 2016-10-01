@@ -2,13 +2,13 @@
 //  Tag+CoreDataProperties.swift
 //  hackerbooks2.0
 //
-//  Created by fran on 19/9/16.
+//  Created by fran on 30/9/16.
 //  Copyright © 2016 Francisco Navarro Aguilar. All rights reserved.
 //
 
 import Foundation
 import CoreData
-
+ 
 
 extension Tag {
 
@@ -16,8 +16,8 @@ extension Tag {
         return NSFetchRequest<Tag>(entityName: "Tag");
     }
 
-    @NSManaged public var name: String?
     @NSManaged public var importance: Bool
+    @NSManaged public var name: String?
     @NSManaged public var bookTags: NSSet?
 
 }

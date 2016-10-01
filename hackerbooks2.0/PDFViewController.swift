@@ -55,7 +55,7 @@ class PDFViewController: UIViewController, URLSessionDownloadDelegate {
         
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(PDFViewController.cancel))
         
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Notas", style: .plain, target: self, action: #selector(PDFViewController.showNotes))
+        
     }
     
     
@@ -66,14 +66,21 @@ class PDFViewController: UIViewController, URLSessionDownloadDelegate {
     }
 
     func showNotes(){
-        let mapVC = NotesMapViewController()
-        mapVC.title = "Map"
         
-        let notesTabBarController = UITabBarController()
-        notesTabBarController.title = "Notas"
-        notesTabBarController.setViewControllers([mapVC], animated: true)
+        let notesRequest : NSFetchRequest<Annotation> = Annotation.fetchRequest()
+        notesRequest.sortDescriptors = [NSSortDescriptor(key:"modificationDate",ascending:false)]
         
-        self.navigationController?.pushViewController(notesTabBarController, animated: true)
+        
+        
+        let fetchedResultsController = NSFetchedResultsController(fetchRequest: notesRequest, managedObjectContext: self.book.managedObjectContext!, sectionNameKeyPath: nil, cacheName: nil)
+
+
+        
+        let annotationCVC = AnnotationsCollectionViewController(pdf: self.book.pdf!,fetchedResultsController: fetchedResultsController as! NSFetchedResultsController<NSFetchRequestResult>, layout: UICollectionViewFlowLayout())
+        annotationCVC.title = "List"
+        
+    
+        self.navigationController?.pushViewController(annotationCVC, animated: true)
         
         
     }
@@ -81,7 +88,7 @@ class PDFViewController: UIViewController, URLSessionDownloadDelegate {
     func loadPDF(data : Data){
         
         self.webView.load(data, mimeType: "application/pdf", textEncodingName: "utf-8", baseURL: NSURL() as URL)
-        
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Notas", style: .plain, target: self, action: #selector(PDFViewController.showNotes))
     }
     
     func clean(){
@@ -98,6 +105,7 @@ extension PDFViewController{
         let data = try! Data(contentsOf: location)
         let pdf = Pdf(pdfData: data, inContext: self.context)
         self.book.pdf = pdf
+        
         self.loadPDF(data: data)
         
         self.clean()
@@ -120,4 +128,6 @@ extension PDFViewController{
     }
     
 }
+
+
 

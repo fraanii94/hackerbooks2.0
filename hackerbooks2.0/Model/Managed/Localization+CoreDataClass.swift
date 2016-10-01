@@ -12,6 +12,15 @@ import CoreData
 
 public class Localization: NSManagedObject {
     
+    static let entityName = "Localization"
     
+    convenience init(address: String,latitude: Double, longitude: Double,annotation: Annotation,inContext context:NSManagedObjectContext) {
+        self.init(entity: NSEntityDescription.entity(forEntityName: Localization.entityName, in: context)!, insertInto: context)
+        
+        self.address = address
+        self.latitude = latitude
+        self.longitude = longitude
+        self.annotation = annotation
+    }
 
 }

@@ -22,7 +22,7 @@ class AnnotationsCollectionViewController: CoreDataCollectionViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        collectionView?.backgroundColor = UIColor.white
+        collectionView?.backgroundColor = UIColor.black
         
  
 

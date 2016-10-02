@@ -18,21 +18,17 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="K09-o6-amL">
-                    <frame key="frameInset" minY="225" width="375" height="398"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                </imageView>
-                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="abZ-kB-izP">
-                    <frame key="frameInset" minY="66" width="375" height="151"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="K09-o6-amL"/>
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="abZ-kB-izP">
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="151" id="mE3-jj-zJH"/>
+                    </constraints>
                     <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                     <fontDescription key="fontDescription" name="DevanagariSangamMN" family="Devanagari Sangam MN" pointSize="16"/>
                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="done"/>
                 </textView>
-                <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Laa-ru-E40">
-                    <frame key="frameInset" height="44"/>
-                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Laa-ru-E40">
                     <items>
                         <barButtonItem systemItem="camera" id="BcS-yx-nHD">
                             <connections>
@@ -50,6 +46,18 @@
                 </toolbar>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="abZ-kB-izP" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="66" id="012-TE-HxG"/>
+                <constraint firstItem="abZ-kB-izP" firstAttribute="leading" secondItem="K09-o6-amL" secondAttribute="leading" id="DjC-XO-IP5"/>
+                <constraint firstAttribute="bottom" secondItem="Laa-ru-E40" secondAttribute="bottom" id="Hu6-Vz-akc"/>
+                <constraint firstItem="abZ-kB-izP" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="JTk-nh-OhO"/>
+                <constraint firstItem="K09-o6-amL" firstAttribute="trailing" secondItem="Laa-ru-E40" secondAttribute="trailing" id="RmF-oW-6o8"/>
+                <constraint firstAttribute="trailing" secondItem="abZ-kB-izP" secondAttribute="trailing" id="VKY-v6-jLB"/>
+                <constraint firstItem="Laa-ru-E40" firstAttribute="top" secondItem="K09-o6-amL" secondAttribute="bottom" id="ajj-A6-szj"/>
+                <constraint firstItem="K09-o6-amL" firstAttribute="leading" secondItem="Laa-ru-E40" secondAttribute="leading" id="mGA-HT-Oh1"/>
+                <constraint firstItem="K09-o6-amL" firstAttribute="top" secondItem="abZ-kB-izP" secondAttribute="bottom" constant="8" symbolic="YES" id="nsl-GA-fn9"/>
+                <constraint firstItem="abZ-kB-izP" firstAttribute="trailing" secondItem="K09-o6-amL" secondAttribute="trailing" id="phM-k6-kzG"/>
+            </constraints>
             <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
             <point key="canvasLocation" x="34.5" y="135.5"/>
         </view>

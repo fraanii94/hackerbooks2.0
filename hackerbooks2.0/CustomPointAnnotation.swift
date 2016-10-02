@@ -10,7 +10,7 @@ import UIKit
 import MapKit
 class CustomPointAnnotation: MKPointAnnotation {
 
-    var image : UIImage? = nil
+    var annotation : Annotation? = nil
     
     
 }

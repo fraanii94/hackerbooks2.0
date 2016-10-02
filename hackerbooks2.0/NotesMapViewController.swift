@@ -45,7 +45,7 @@ class NotesMapViewController: UIViewController {
         for annotation in self.annotations{
             let pin = CustomPointAnnotation()
             pin.title = annotation.text
-            pin.image = annotation.photo?.image
+            pin.annotation = annotation
             pin.coordinate = CLLocationCoordinate2D(latitude: (annotation.localization?.latitude)!, longitude: (annotation.localization?.longitude)!)
             
             mapView.addAnnotation(pin)
@@ -63,13 +63,19 @@ extension NotesMapViewController : MKMapViewDelegate{
         let pin = MKPinAnnotationView(annotation: annotation, reuseIdentifier: "pin")
         pin.canShowCallout = true
         let noteButton = UIButton(type: .infoLight)
-        noteButton.addTarget(self, action: #selector(showNote), for: .touchUpInside)
         let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 32, height: 32))
-        imageView.image = annotation.image!
-    
-        pin.rightCalloutAccessoryView = imageView
+        imageView.image = annotation.annotation?.photo?.image
+        pin.leftCalloutAccessoryView = imageView
+        pin.rightCalloutAccessoryView = noteButton
         
         return pin
+    }
+    
+    func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
+        let pointAnnotation = view.annotation as! CustomPointAnnotation
+        
+        let annotationVC = AnnotationViewController(annotation:pointAnnotation.annotation!)
+        self.navigationController?.pushViewController(annotationVC, animated: true)
     }
     
 }

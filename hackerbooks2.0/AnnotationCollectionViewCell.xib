@@ -27,7 +27,7 @@
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="025-gc-RzH"/>
                 </subviews>
             </view>
-            <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="YBM-W0-liJ" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="topMargin" id="5Ny-7F-hD8"/>
                 <constraint firstItem="025-gc-RzH" firstAttribute="bottom" secondItem="gTV-IL-0wX" secondAttribute="bottomMargin" id="ZLC-ov-a9g"/>

@@ -33,9 +33,9 @@ class PDFViewController: UIViewController, URLSessionDownloadDelegate {
     
     override func viewWillAppear(_ animated: Bool) {
         
-        
-        
         self.edgesForExtendedLayout = []
+        
+        saveLastPdf()
         
         if(self.book.pdf == nil){
             let conf = URLSessionConfiguration.background(withIdentifier: "hackerbooks.pdf." + self.book.title!)
@@ -129,5 +129,16 @@ extension PDFViewController{
     
 }
 
+extension PDFViewController{
+    
+    func saveLastPdf(){
+        
+        let userDefaults = UserDefaults.standard
+        
+        userDefaults.set(self.book.objectID.uriRepresentation(), forKey: "lastPDF")
+        
+    }
+    
+}
 
 

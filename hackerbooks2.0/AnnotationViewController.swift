@@ -59,6 +59,7 @@ class AnnotationViewController: UIViewController {
         }
         
         picker.delegate = self
+        
         self.present(picker, animated: true) { 
             
         }
@@ -77,10 +78,22 @@ class AnnotationViewController: UIViewController {
 
         let activityController = UIActivityViewController(activityItems: [text,pdfURL,image], applicationActivities: nil)
         
-        
-        self.present(activityController, animated: true) { 
+        if UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiom.phone{
+            self.present(activityController, animated: true) {
+                
+            }
+        }else{
+            
+            activityController.modalPresentationStyle = .popover
+            self.present(activityController, animated: true, completion: nil)
+            let popover = activityController.popoverPresentationController
+            popover?.permittedArrowDirections = .any
+            popover?.barButtonItem = self.navigationItem.rightBarButtonItem
             
         }
+        
+        
+       
         
     }
 }
